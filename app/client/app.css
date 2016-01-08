@@ -10,7 +10,7 @@ body {
 .morphsearch {
   background: #f1f1f1;
   position: absolute;
-  z-index: 10000;
+  z-index: 1;
   width: 100%;
   min-height: 100%;
   top: 0px;
@@ -103,6 +103,63 @@ input[type="search"] { /* reset normalize */
   transform: translate3d(-30px,-50%,0) scale3d(1,1,1);
 }
 
+.morphsearch-close {
+  z-index: 100;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.1;
+  color: black;
+  font-size: 3.5em;
+  font-weight: 700;
+  text-align: right;
+}
+
+.morphsearch-close.active {
+  opacity: 0.8;
+}
+
+.active ~ .morphsearch-form,
+.active ~ .morphsearch-content {
+  opacity: 0.25;
+}
+
+.morphsearch-close .help {
+  position: relative;
+  width: 50%;
+  left: 50%;
+  font-size: 0.5em;
+  text-align: left;
+}
+
+.morphsearch-close .credits {
+  margin-top: 0.6em;
+  text-align: center;
+  font-size: 0.6em;
+  opacity: 0.5;
+}
+
+.morphsearch-close .credits a {
+  color: #2196F3;
+}
+
+.morphsearch-close:hover.morphsearch-close::before,
+.morphsearch-close:hover.morphsearch-close::after {
+  opacity: 1;
+}
+
+.morphsearch-close::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.morphsearch-close::after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
 .morphsearch-content {
   z-index: -1;
   color: #333;
@@ -180,7 +237,7 @@ input[type="search"] { /* reset normalize */
   position: fixed;
   width: 100%;
   height: 3em;
-  z-index: 10000;
+  z-index: 10;
   background: #f1f1f1;
 }
 
@@ -194,6 +251,10 @@ input[type="search"] { /* reset normalize */
     float: none;
     width: auto;
     padding: 0px;
+  }
+  .morphsearch-close .help {
+    width: 90%;
+    left: 10%;
   }
   .dummy-column:nth-child(2) {
     margin: 0;
@@ -209,7 +270,7 @@ input[type="search"] { /* reset normalize */
 .clearfix:after { clear: both; }
 
 body {
-  background: #c1c1c1 url(../img/unsplash.jpg) no-repeat center bottom;
+  background: #c1c1c1;
   color: #fff;
   font-size: 1em;
   font-family: 'Raleway', Arial, sans-serif;

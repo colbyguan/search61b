@@ -3,20 +3,24 @@ import argparse
 import scrapers
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--host', action='store', dest='host', type=str)
+parser.add_argument('-a', '--host', action='store', dest='host', type=str)
 parser.add_argument('-p', '--port', action='store', dest='port', type=int)
+parser.add_argument('-n', '--name', action='store', dest='name', type=str)
 
 if __name__ == '__main__':
   args = parser.parse_args()
   host = 'localhost'
   port = 3001
+  name = 'meteor'
 
   if args.port:
     port = args.port
   if args.host:
     host = args.host
+  if args.name:
+    name = args.name
   client = MongoClient(host, port)
-  db = client.meteor
+  db = client[name]
   db.drop_collection('links')
   links = db.links
 

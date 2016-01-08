@@ -5,9 +5,10 @@ SearchBox = React.createClass({
   },
 
   render() {
+    var placeholder = Session.get('dataReady') ? 'Search 61B...' : 'Loading...';
     return (
       <form className="morphsearch-form">
-        <input className="morphsearch-input" type="text" ref="searchInput" placeholder="Search 61B..." value={this.props.query} onChange={this.doSearch} />
+        <input className="morphsearch-input" type="text" ref="searchInput" placeholder={placeholder} value={this.props.query} onChange={this.doSearch} />
         <span className="morphsearch-submit">Search</span>
       </form>
     );
