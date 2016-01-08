@@ -32,12 +32,11 @@ Search = React.createClass({
   render() {
     return (
       <div className="container">
-        <header>
-          <h1>Search</h1>
-        </header>
-
-        <SearchBox query={this.state.query} doSearch={this.doSearch} />
-        <Results query={this.state.query} links={this.state.filteredData} />
+        <div id="morphsearch" className="morphsearch">
+          <div id="coverup"></div>
+          <SearchBox query={this.state.query} doSearch={this.doSearch} />
+          <Results query={this.state.query} links={this.state.filteredData} />
+        </div>
       </div>
     );
   }
