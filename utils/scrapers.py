@@ -13,7 +13,7 @@ class Link:
 
 
 def search_su15():
-    url = 'https://cs61bl.github.io/'
+    url = 'http://www.cs61bl.org/su16/'
     soup = BeautifulSoup(requests.get(url).text)
     raw_links = soup.find('table', {'id': 'calendar'}).find_all('a')
 
